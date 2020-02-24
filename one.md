@@ -28,3 +28,21 @@
 ```
 timedatectl set-ntp true
 ```
+
+### 3、替换仓库列表
+```
+使用nano编辑器编辑 /etc/pacman.d/mirrorlist文件按F6搜索自己想设置的源的关键字
+
+清华源关键字：tuna
+网易源关键字：163
+重大源关键词：cqu
+中科大源关键词：ustc
+
+输入后回车，光标所在的位置就是源链接位置，
+通过ctrl+k剪切，把光标移动到最上面ctrl+u粘贴
+ctrl+o保存，回车确定，ctrl+x退出
+执行pancman -Syy更新源数据
+```
+
+### 4、建立硬盘分区与格式化
+```
