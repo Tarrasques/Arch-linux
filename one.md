@@ -49,4 +49,40 @@ ctrl+o保存，回车确定，ctrl+x退出
 通过指令 fdisk -l 或者 lsblk查看自己电脑的分区
 找到自己想要安装的硬盘并记住硬盘分区的编号（比如/dev/sda，下面以这个为基础）
 
-执行 cfdisk /dev/sda 进入字符界面分区
+执行 cfdisk /dev/sda 进入字符界面分区 主要分三个分区：EFI分区，swap交换分区，Linux System date系统主分区
+
+*分出来的区编号不一样，我这儿举个例子作为参考
+EFI分区大小：100M~512M         /dev/sda1
+Swap交换分区：500M~2G          /dev/sda2
+Linux系统主分区：剩下所有大小   /dev/sda3
+
+通过delete删掉你选择的硬盘所有分区
+用new来分出各个分区
+使用type来设置各个分区的类型
+设置完后选择write输入yes回车 选择quite退出
+
+下面格式化分区：
+mkfs.fat /dev/sda1
+mkswap /dev/sda2
+mkfs.ext4 /dev/sda3
+
+挂载分区
+mount /dev/sda3 /mnt
+swapon /dev/sda2
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
+输入lsblk查看是否挂载成功
+```
+### 5、下载安装必要的包
+```
+输入指令 pacstrap /mnt base base-devel linux linux-lts linux-lts-header linux-firmware wqy-zenhei ttf-dejavu wqy-microhei adobe-source-code-pro-fonts -y
+```
+### 6、生成fstab分区表
+```
+输入指令 genfstab -U /mnt >> /mnt/etc/fstab
+```
+### 7、进入半成品系统进行配置
+```
+*不要重启！不要重启！不要重启！现在还是半成品，重启电脑会前功尽废
+输入指令 arch-chroot /mnt 进入半成品系统
+```
