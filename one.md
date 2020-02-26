@@ -90,12 +90,11 @@ mount /dev/sda1 /mnt/boot
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 hwclock --systohc --utc
 mkinitcpio -p linux
-输入 exit 退出半成品系统
-输入 nano /mnt/etc/locale.gen 编辑
+输入 nano /etc/locale.gen 编辑
 在文头加入 en_US.UTF-8 UTF-8
 换行再加入 zh_CN.UTF-8 UTF-8
-保存后编辑 /mnt/etc/locale.conf 加入  LANG=en_US.UTF-8
-arch-chroot 进入后输入 locale-gen
+保存后编辑 /etc/locale.conf 加入  LANG=en_US.UTF-8
+执行 locale-gen
 
 2、安装驱动程序
 输入 arch-chroot /mnt 进入半成品系统
@@ -117,8 +116,8 @@ nano /etc/hostname
 编辑 /etc/hosts 
 nano /etc/hosts
 添加以下代码（自行把hostname改为自己设定的主机名）
-127.0.0.1     localhost.localdomain   localhost
-::1           localhost.localdomain   localhost
+127.0.0.1     localhost
+::1           localhost
 127.0.0.1     hostname.localdomain   hostname
 保存并退出
 
@@ -148,8 +147,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 EFI系统执行以下命令：
 pacman -S grub efibootmgr -y
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
+grub-install && grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ### 九、卸载被挂载的分区重启进入ArchLinux
 ```
