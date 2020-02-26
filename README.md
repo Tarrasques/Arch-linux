@@ -1,7 +1,7 @@
 # Arch Linux安装教程
 ```
-One为单系统教程
-Two为双系统教程
+One为单系统教程 
+Two为双系统教程 
 Bug为问题解决文档
 Linux为ArchLinuxLinux常用命令集合文档
 
