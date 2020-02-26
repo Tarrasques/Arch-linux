@@ -142,8 +142,7 @@ No such file or directory 为BIOS，反则为EFI
 
 BIOS系统执行以下命令：
 pacman -S grub -y
-grub-install --target=i386-pc /dev/sda
-grub-mkconfig -o /boot/grub/grub.cfg
+grub-install && grub-mkconfig -o /boot/grub/grub.cfg
 
 EFI系统执行以下命令：
 pacman -S grub efibootmgr -y
