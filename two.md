@@ -87,6 +87,7 @@ mkdir /mnt/boot
 mkdir /mnt/boot/EFI
 mount /dev/nvme0n1p2 /mnt/boot/EFI
 输入lsblk查看是否挂载成功
+```
 
 ### 五、下载安装必要的包
 ```
