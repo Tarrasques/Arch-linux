@@ -1,7 +1,7 @@
 # Arch Linux安装教程
 ```
-One为单系统教程 https://github.com/Tarrasques/Arch-linux/blob/master/one.md
-Two为双系统教程 https://github.com/Tarrasques/Arch-linux/blob/master/two.md
+One为单系统教程 
+Two为双系统教程 
 Bug为问题解决文档
 Linux为Linux常用命令集合文档
 
