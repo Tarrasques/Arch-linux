@@ -75,7 +75,7 @@ mount /dev/sda1 /mnt/boot
 ```
 ### 五、下载安装必要的包
 ```
-输入指令 pacstrap /mnt base base-devel linux linux-lts linux-lts-header linux-firmware wqy-zenhei ttf-dejavu wqy-microhei adobe-source-code-pro-fonts -y
+输入指令 pacstrap /mnt base base-devel linux linux-lts linux-lts-headers linux-firmware wqy-zenhei ttf-dejavu wqy-microhei adobe-source-code-pro-fonts -y
 ```
 ### 六、生成fstab分区表
 ```
